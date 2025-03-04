@@ -1,19 +1,17 @@
-- hosts: localhost
-  connection: local
-  become: yes
-  become_user: root
+- hosts: windows
+  connection: winrm
   tasks:
     - name: "Simulate connection failure"
       lineinfile:
-        path: /etc/hosts
-        line: 127.0.0.1 bit.ly
+        path: "C:\\Windows\\System32\\drivers\\etc\\hosts"
+        line: "127.0.0.1 bit.ly"
       tags:
       - service_down
         
     - name: "Restore service"
       lineinfile:
-        path: /etc/hosts
-        line: 127.0.0.1 bit.ly
+        path: "C:\\Windows\\System32\\drivers\\etc\\hosts"
+        line: "127.0.0.1 bit.ly"
         state: absent
       tags:
       - service_up
