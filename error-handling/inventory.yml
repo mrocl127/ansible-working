@@ -11,7 +11,7 @@ windows:
 linux:
   hosts:
     webserver2:
-      ansible_host: <IP or hostname of the Ubuntu server>
+      ansible_host: 13.52.179.219
   vars:
       ansible_user: ubuntu
       ansible_ssh_private_key_file: /home/ubuntu/.ssh/id_rsa
